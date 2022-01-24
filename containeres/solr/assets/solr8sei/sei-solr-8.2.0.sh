@@ -44,5 +44,7 @@ mkdir -v /dados/sei-publicacoes/conteudo
 chown -R solr.solr /dados
 chown -R solr.solr /opt/solr/
 
+echo 'SOLR_OPTS="$SOLR_OPTS -Dlog4j2.formatMsgNoLookups=true"' >> /opt/solr/bin/solr.in.sh
+
 cp solr.service /etc/systemd/system/solr.service
 
