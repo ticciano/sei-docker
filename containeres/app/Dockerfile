@@ -14,9 +14,12 @@ ADD files/ /sei/files/
     
 RUN bash /sei/files/install.sh
 
+#RUN cp /sei/files/scripts-e-automatizadores/entrypoint.sh / && \
+#    cp /sei/files/scripts-e-automatizadores/entrypoint-atualizador.sh /  && \
+#    bash /sei/files/scripts-e-automatizadores/clone-modules.sh
+
 RUN cp /sei/files/scripts-e-automatizadores/entrypoint.sh / && \
-    cp /sei/files/scripts-e-automatizadores/entrypoint-atualizador.sh /  && \
-    bash /sei/files/scripts-e-automatizadores/clone-modules.sh
+    cp /sei/files/scripts-e-automatizadores/entrypoint-atualizador.sh /  
 
 EXPOSE 80
 EXPOSE 443
