@@ -50,19 +50,21 @@ class ConfiguracaoSip extends InfraConfiguracao  {
 				'CacheSip' => array('Servidor' => 'memcached',
 						                'Porta' => '11211'),
 
-				'InfraMail' => array(
-						'Tipo' => '2', //1 = sendmail (neste caso n�o � necess�rio configurar os atributos abaixo), 2 = SMTP
-						'Servidor' => 'smtp',
-						'Porta' => '25',
-						'Codificacao' => '8bit', //8bit, 7bit, binary, base64, quoted-printable
-						'MaxDestinatarios' => 999, //numero maximo de destinatarios por mensagem
-						'MaxTamAnexosMb' => 999, //tamanho maximo dos anexos em Mb por mensagem
-						'Seguranca' => '', //TLS, SSL ou vazio
-						'Autenticar' => false, //se true ent�o informar Usuario e Senha
-						'Usuario' => '',
-						'Senha' => '',
-						'Protegido' => '' //campo usado em desenvolvimento, se tiver um email preenchido entao todos os emails enviados terao o destinatario ignorado e substitu�do por este valor (evita envio incorreto de email)
-				)
+                                'InfraMail' => array(
+                                                'Tipo' => getenv('APP_MAIL_TIPO'), //1 = sendmail (neste caso n�o � necess�rio configurar os atributos abaixo), 2 = SMTP
+                                                'Servidor' => getenv('APP_MAIL_SERVIDOR'),
+                                                'Porta' => getenv('APP_MAIL_PORTA'),
+                                                'Codificacao' => getenv('APP_MAIL_CODIFICACAO'), //8bit, 7bit, binary, base64, quoted-printable
+                                                'MaxDestinatarios' => getenv('APP_MAIL_MAXDESTINATARIOS'), //numero maximo de destinatarios por mensagem
+                                                'MaxTamAnexosMb' => getenv('APP_MAIL_MAXTAMANHOANEXOSMB'), //tamanho maximo dos anexos em Mb por mensagem
+                                                'Seguranca' => getenv('APP_MAIL_SEGURANCA'), //TLS, SSL ou vazio
+                                                'Autenticar' => getenv('APP_MAIL_AUTENTICAR'), //se true ent�o informar Usuario e Senha
+                                                'Usuario' => getenv('APP_MAIL_USUARIO'),
+                                                'Senha' => getenv('APP_MAIL_SENHA'),
+                                                'Protegido' => getenv('APP_MAIL_PROTEGIDO') //campo usado em desenvolvimento, se tiver um email preenchido entao todos os emails enviados terao o destinatario ignorado e substitu�do por este valor evitando envio incorreto de email
+                                )
+
+
  	  );
  	}
 }
