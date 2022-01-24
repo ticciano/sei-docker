@@ -3,10 +3,13 @@
 set -e
 
 yum clean all
-yum -y  update
+yum -y update
 
 # Instalação dos componentes básicos do servidor web apache
 yum -y install httpd memcached openssl wget curl unzip gcc java-1.8.0-openjdk libxml2 cabextract xorg-x11-font-utils fontconfig mod_ssl
+
+# Instalação dos componentes para wkhtmltox
+yum -y install libpng libjpeg icu libX11 libXext libXrender xorg-x11-fonts-Type1 xorg-x11-fonts-75dpi
 
 # Instalação do PHP e demais extenções necessárias para o projeto
 yum install -y epel-release yum-utils
@@ -44,6 +47,12 @@ cp /sei/files/conf/sei.conf /etc/httpd/conf.d/
 cd /sei/instaladores
 rpm -Uvh msttcore-fonts-2.0-3.noarch.rpm
 rm -f msttcore-fonts-2.0-3.noarch.rpm
+
+
+# Instalação do wkhtmltox
+cd /sei/instaladores
+rpm -Uvh wkhtmltox-0.12.6-1.centos7.x86_64.rpm
+rm -f wkhtmltox-0.12.6-1.centos7.x86_64.rpm
 
 # ORACLE oci
 mkdir -p /opt/oracle \

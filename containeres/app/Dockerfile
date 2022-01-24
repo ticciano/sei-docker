@@ -2,11 +2,12 @@ FROM centos:7
 
 ENV TERM xterm
 
-ADD https://github.com/spbgovbr/sei-docker-binarios/raw/main/pacoteslinux/msttcore-fonts-2.0-3.noarch.rpm \
-    https://github.com/spbgovbr/sei-docker-binarios/raw/main/pacoteslinux/oracle-instantclient12.2-basic-12.2.0.1.0-1.x86_64.rpm \
-    https://github.com/spbgovbr/sei-docker-binarios/raw/main/pacoteslinux/oracle-instantclient12.2-devel-12.2.0.1.0-1.x86_64.rpm \
-    https://github.com/spbgovbr/sei-docker-binarios/raw/main/pacoteslinux/oracle-instantclient12.2-sqlplus-12.2.0.1.0-1.x86_64.rpm \
-    https://github.com/spbgovbr/sei-docker-binarios/raw/main/pacoteslinux/uploadprogress.tgz /sei/instaladores/
+ADD https://github.com/cadumsx/sei-docker-binarios/raw/main/pacoteslinux/msttcore-fonts-2.0-3.noarch.rpm \
+    https://github.com/cadumsx/sei-docker-binarios/raw/main/pacoteslinux/oracle-instantclient12.2-basic-12.2.0.1.0-1.x86_64.rpm \
+    https://github.com/cadumsx/sei-docker-binarios/raw/main/pacoteslinux/oracle-instantclient12.2-devel-12.2.0.1.0-1.x86_64.rpm \
+    https://github.com/cadumsx/sei-docker-binarios/raw/main/pacoteslinux/oracle-instantclient12.2-sqlplus-12.2.0.1.0-1.x86_64.rpm \
+    https://github.com/cadumsx/sei-docker-binarios/raw/main/pacoteslinux/uploadprogress.tgz \
+    https://github.com/cadumsx/sei-docker-binarios/raw/main/pacoteslinux/wkhtmltox-0.12.6-1.centos7.x86_64.rpm /sei/instaladores/
     #https://github.com/spbgovbr/sei-docker-binarios/raw/main/pacoteslinux/libsodium-1.0.18-stable.tar.gz /sei/instaladores/
     
 
