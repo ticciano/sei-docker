@@ -16,7 +16,7 @@ class ConfiguracaoSEI extends InfraConfiguracao  {
 
  	      'SEI' => array(
  	          'URL' => getenv('APP_PROTOCOLO').'://'.getenv('APP_HOST').'/sei',
- 	          'Producao' => false,
+ 	          'Producao' => true,
  	          'RepositorioArquivos' => '/sei/arquivos_externos_sei',
               'Modulos' => array(/*novomodulo*/), 
               ),
