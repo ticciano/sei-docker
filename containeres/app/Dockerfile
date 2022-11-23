@@ -14,11 +14,6 @@ ADD https://github.com/cadumsx/sei-docker-binarios/raw/main/pacoteslinux/msttcor
     
 
 COPY remi-repo/* /etc/yum.repos.d/
-# COPY remi-repo/remi-php73.repo /etc/yum.repos.d/
-# COPY remi-repo/remi-safe.repo /etc/yum.repos.d/
-# COPY prometheus/node_exporter /usr/local/bin/
-
-
 
 ADD files/ /sei/files/
     
