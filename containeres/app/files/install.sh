@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+!/usr/bin/env bash
 
 set -e
 
@@ -13,7 +13,9 @@ yum -y install libpng libjpeg icu libX11 libXext libXrender xorg-x11-fonts-Type1
 
 # Instalação do PHP e demais extenções necessárias para o projeto
 yum install -y epel-release yum-utils
-yum install -y http://rpms.remirepo.net/enterprise/remi-release-7.rpm
+
+# CENTOS 0.1
+# yum install -y http://mirror.team-cymru.com/remi/enterprise/remi-release-7.rpm
 yum-config-manager --enable remi-php73
 yum -y update
 
@@ -25,6 +27,7 @@ yum -y install php php-common php-cli php-pear php-bcmath php-gd php-gmp php-ima
     freetds freetds-devel php-mssql php-sodium \
     git nc gearmand libgearman-dev libgearman-devel mysql
 
+# CENTOS 0.2
 # Configuração do pacote de línguas pt_BR
 localedef pt_BR -i pt_BR -f ISO-8859-1
 
@@ -70,9 +73,11 @@ echo /usr/lib/oracle/12.2/client64/lib > /etc/ld.so.conf.d/oracle-instantclient.
 ldconfig
 
 # Install Oracle extensions
-yum install -y php-dev php-pear build-essential systemtap-sdt-devel 
-pecl channel-update pecl.php.net 
-export PHP_DTRACE=yes && pecl install oci8-2.2.0 && unset PHP_DTRACE
+yum install -y php73-php-pecl-oci8
+
+# yum install -y php-dev php-pear build-essential systemtap-sdt-devel 
+# pecl channel-update pecl.php.net 
+# export PHP_DTRACE=yes && pecl install oci8-2.2.0 --with-oci8=instantclient,/opt/oracle/instantclient_12_2 && unset PHP_DTRACE
 
 echo "extension=oci8.so" > /etc/php.d/oci8.ini 
 

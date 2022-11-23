@@ -1,4 +1,6 @@
 FROM centos:7
+# FROM centos7:0.2
+
 
 ENV TERM xterm
 
@@ -11,16 +13,23 @@ ADD https://github.com/cadumsx/sei-docker-binarios/raw/main/pacoteslinux/msttcor
     #https://github.com/spbgovbr/sei-docker-binarios/raw/main/pacoteslinux/libsodium-1.0.18-stable.tar.gz /sei/instaladores/
     
 
+COPY remi-repo/remi-php73.repo /etc/yum.repos.d/
+COPY remi-repo/remi-safe.repo /etc/yum.repos.d/
+COPY prometheus/node_exporter /usr/local/bin/
+# COPY remi-repo/remi-modular.repo /etc/yum.repos.d/
+
+
 ADD files/ /sei/files/
     
 RUN bash /sei/files/install.sh
 
-#RUN cp /sei/files/scripts-e-automatizadores/entrypoint.sh / && \
-#    cp /sei/files/scripts-e-automatizadores/entrypoint-atualizador.sh /  && \
-#    bash /sei/files/scripts-e-automatizadores/clone-modules.sh
+RUN cp /sei/files/scripts-e-automatizadores/entrypoint.sh / && \
+    cp /sei/files/scripts-e-automatizadores/entrypoint-atualizador.sh /
+    
+    # bash /sei/files/scripts-e-automatizadores/clone-modules.sh                #Arquivo nao existe
 
 RUN cp /sei/files/scripts-e-automatizadores/entrypoint.sh / && \
-    cp /sei/files/scripts-e-automatizadores/entrypoint-atualizador.sh /  
+    cp /sei/files/scripts-e-automatizadores/entrypoint-atualizador.sh /
 
 EXPOSE 80
 EXPOSE 443

@@ -205,6 +205,8 @@ sleep 3
 
 echo "Apache no ar"
 
+echo "Iniciando note exporter..."
+/usr/local/bin/node_exporter &
 
 touch /sei/controlador-instalacoes/instalado.ok
 

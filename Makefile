@@ -18,7 +18,7 @@ qtd := "2"
 LOGS_SEGUIR=true
 
 DIR := ${CURDIR}
-COMMMADCOMPOSE = docker-compose -f orquestrators/docker-compose/docker-compose.yml 
+COMMMADCOMPOSE = docker compose -f orquestrators/docker-compose/docker-compose.yml 
 
 help:   ## Lista de comandos disponiveis e descricao. Voce pode usar TAB para completar os comandos
 	@fgrep -h "##" $(MAKEFILE_LIST) | fgrep -v fgrep | sed -e 's/\\$$//' | sed -e 's/##//'
