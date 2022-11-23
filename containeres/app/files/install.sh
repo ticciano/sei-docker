@@ -73,11 +73,11 @@ echo /usr/lib/oracle/12.2/client64/lib > /etc/ld.so.conf.d/oracle-instantclient.
 ldconfig
 
 # Install Oracle extensions
-yum install -y php73-php-pecl-oci8
+#yum install -y php73-php-pecl-oci8
 
-# yum install -y php-dev php-pear build-essential systemtap-sdt-devel 
-# pecl channel-update pecl.php.net 
-# export PHP_DTRACE=yes && pecl install oci8-2.2.0 --with-oci8=instantclient,/opt/oracle/instantclient_12_2 && unset PHP_DTRACE
+yum install -y php-dev php-pear build-essential systemtap-sdt-devel 
+pecl channel-update pecl.php.net 
+export PHP_DTRACE=yes &&  echo "instantclient,/usr/lib/oracle/12.2/client64/lib"|pecl install oci8-2.2.0 && unset PHP_DTRACE
 
 echo "extension=oci8.so" > /etc/php.d/oci8.ini 
 
