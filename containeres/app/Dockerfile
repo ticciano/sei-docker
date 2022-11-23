@@ -13,10 +13,11 @@ ADD https://github.com/cadumsx/sei-docker-binarios/raw/main/pacoteslinux/msttcor
     #https://github.com/spbgovbr/sei-docker-binarios/raw/main/pacoteslinux/libsodium-1.0.18-stable.tar.gz /sei/instaladores/
     
 
-COPY remi-repo/remi-php73.repo /etc/yum.repos.d/
-COPY remi-repo/remi-safe.repo /etc/yum.repos.d/
-COPY prometheus/node_exporter /usr/local/bin/
-# COPY remi-repo/remi-modular.repo /etc/yum.repos.d/
+COPY remi-repo/* /etc/yum.repos.d/
+# COPY remi-repo/remi-php73.repo /etc/yum.repos.d/
+# COPY remi-repo/remi-safe.repo /etc/yum.repos.d/
+# COPY prometheus/node_exporter /usr/local/bin/
+
 
 
 ADD files/ /sei/files/
